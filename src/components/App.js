@@ -1,35 +1,48 @@
 import '../styles/App.css';
-
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 /** import components */
 import Main from './Main';
 import Quiz from './Quiz';
 import Result from './Result';
+import Login from './Login';
+import Signup from './Signup';
 import { CheckUserExist } from '../helper/helper';
-
+import Logout from './Logout'; // Import Logout
 
 /** react routes */
 const router = createBrowserRouter([
   {
-    path : '/',
-    element : <Main></Main>
+    path: '/',
+    element: <CheckUserExist><Main /></CheckUserExist> // Protect the main page
   },
   {
-    path : '/quiz',
-    element : <CheckUserExist><Quiz /></CheckUserExist>
+    path: '/login',
+    element: <Login />
   },
   {
-    path : '/result',
-    element : <CheckUserExist><Result /></CheckUserExist>
+    path: '/signup',
+    element: <Signup />
   },
-])
+  {
+    path: '/quiz',
+    element: <CheckUserExist><Quiz /></CheckUserExist>
+  },
+  {
+    path: '/result',
+    element: <CheckUserExist><Result /></CheckUserExist>
+  },
+  {
+    path: '/logout', // Add logout route
+    element: <Logout />
+  }
+]);
 
 function App() {
   return (
-    <>
-      <RouterProvider router={router} />
-    </>
+      <>
+        <RouterProvider router={router} />
+      </>
   );
 }
 
