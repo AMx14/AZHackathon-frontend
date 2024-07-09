@@ -11,6 +11,7 @@ import CreateLobby from './CreateLobby';
 import JoinLobby from './JoinLobby';
 import GlobalList from './GlobalList';
 import Lobby from './Lobby';
+import CreateMCQ from "./CreateMCQ";
 function App() {
   return (
       <Router>
@@ -25,6 +26,7 @@ function App() {
           <Route path="/logout" element={<Logout />} />
           <Route path="/" element={<Main />} />
         <Route path="/create-lobby" element={<CreateLobby />} />
+            <Route path="/create-mcq" element={<CreateMCQ />} />
       <Route path="/join-lobby" element={<JoinLobby />} />
       <Route path="/join-lobby/:lobbyId" element={<JoinLobby />} />{/* Add more routes as needed */}
         </Routes>

@@ -1,4 +1,4 @@
-import { Grid, Paper, TextField, Button } from '@mui/material';
+import {Grid, Paper, TextField, Button, Typography} from '@mui/material';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
@@ -34,15 +34,15 @@ function LogIn() {
             });
             const json = await response.json();
             if (response.ok) {
-                //const user_id = json.user_id;
                 const accessToken = json.accessToken;
-                localStorage.setItem('accessToken', accessToken);
-                navigate(`/main`);
+                localStorage.setItem(email, accessToken); // Store token with email as the key
+                navigate('/main');
             } else {
                 throw new Error(json.message || 'Log In failed!');
             }
         } catch (error) {
             console.error('Log In error:', error.message);
+            alert(error.message); // Display error message as alert
         }
     };
 
@@ -53,7 +53,9 @@ function LogIn() {
         <Grid>
             <Paper elevation={10} style={paperStyle}>
                 <Grid align='center'>
-                    <h2>Log In</h2>
+                    <Typography variant="h3" sx={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>
+                        Log In
+                    </Typography>
                 </Grid>
                 <TextField
                     label='Email id'
