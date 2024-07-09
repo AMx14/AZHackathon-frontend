@@ -34,15 +34,15 @@ function LogIn() {
             });
             const json = await response.json();
             if (response.ok) {
-                //const user_id = json.user_id;
                 const accessToken = json.accessToken;
-                localStorage.setItem('accessToken', accessToken);
-                navigate(`/main`);
+                localStorage.setItem(email, accessToken); // Store token with email as the key
+                navigate('/main');
             } else {
                 throw new Error(json.message || 'Log In failed!');
             }
         } catch (error) {
             console.error('Log In error:', error.message);
+            alert(error.message); // Display error message as alert
         }
     };
 
