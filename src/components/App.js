@@ -8,7 +8,9 @@ import Result from './Result';
 import Login from './Login';
 import Signup from './Signup';
 import { CheckUserExist } from '../helper/helper';
-import Logout from './Logout'; // Import Logout
+import Logout from './Logout';
+import Lobby from "./FormMCQ";
+import FormMCQ from "./FormMCQ"; // Import Logout
 
 /** react routes */
 const router = createBrowserRouter([
@@ -25,8 +27,12 @@ const router = createBrowserRouter([
     element: <Signup />
   },
   {
+    path: '/formMCQ',
+    element:<FormMCQ />
+  },
+  {
     path: '/quiz',
-    element: <CheckUserExist><Quiz /></CheckUserExist>
+    element:<CheckUserExist><Quiz /></CheckUserExist>
   },
   {
     path: '/result',

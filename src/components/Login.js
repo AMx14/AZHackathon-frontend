@@ -37,7 +37,7 @@ function LogIn() {
                 const user_id = json.user_id;
                 const accessToken = json.accessToken;
                 localStorage.setItem('accessToken', accessToken);
-                navigate(`/Main`);
+                navigate(`/formMCQ`);
             } else {
                 throw new Error(json.message || 'Log In failed!');
             }

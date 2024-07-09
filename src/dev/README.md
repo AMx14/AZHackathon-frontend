@@ -29,7 +29,7 @@ export const PaletteTree = () => (
           </Card>
         </Variant>
       </Component>
-      <Component name="Form">
+      <Component name="FormMCQ">
         <Variant proto={FormTemplate}/>
       </Component>
     </Category>
