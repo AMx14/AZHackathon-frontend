@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import '../styles/Main.css' // Stylesheet for main.js
+import '../styles/Main.css'; // Stylesheet for main.js
 
 const Main = () => {
   const [lobbies, setLobbies] = useState([]);
@@ -30,34 +30,43 @@ const Main = () => {
   };
 
   return (
-    <div className="main-container">
-      <div className="left-section">
-        <Link to="/create-lobby">
-          <button className="create-lobby-button">Create Lobby</button>
-        </Link>
-      </div>
-      <div className="center-section">
-        <div className="lobby-list">
-          <h2>Lobby List</h2>
-          <div className="scrollable-list">
-            {lobbies.map(lobby => (
-              <div
-                key={lobby.id}
-                className="lobby-item"
-                onClick={() => handleLobbyClick(lobby.id)}
-              >
-                {lobby.name}
+      <div className="main-container">
+        <div className="header">
+          <div className="game-info">
+            <h1>QuizCombat</h1>
+            <p>Some description about the game.</p>
+          </div>
+          <Link to="/logout">
+            <button className="button logout-button">LogOut</button>
+          </Link>
+        </div>
+        <div className="content">
+          <div className="left-section">
+            <Link to="/create-lobby">
+              <button className="button create-lobby-button">Create Lobby</button>
+            </Link>
+            <Link to="/join-lobby">
+              <button className="button join-lobby-button">Join Lobby</button>
+            </Link>
+          </div>
+          <div className="center-section">
+            <div className="lobby-list">
+              <h2>Lobby List</h2>
+              <div className="scrollable-list">
+                {lobbies.map(lobby => (
+                    <div
+                        key={lobby.id}
+                        className="lobby-item"
+                        onClick={() => handleLobbyClick(lobby.id)}
+                    >
+                      {lobby.name}
+                    </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
-      <div className="right-section">
-        <Link to="/join-lobby">
-          <button className="join-lobby-button">Join Lobby</button>
-        </Link>
-      </div>
-    </div>
   );
 };
 
