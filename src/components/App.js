@@ -9,7 +9,7 @@ import Login from './Login';
 import Signup from './Signup';
 import { CheckUserExist } from '../helper/helper';
 import Logout from './Logout';
-import Lobby from "./FormMCQ";
+//import Lobby from "./FormMCQ";
 import FormMCQ from "./FormMCQ"; // Import Logout
 
 /** react routes */

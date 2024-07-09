@@ -1,5 +1,5 @@
-import api from './api.js';
+import { userService } from './api.js';
 
-export const login = (credentials) => api.post('/user/login', credentials);
-export const signup = (userData) => api.post('/user/signup', userData);
-export const logout = () => api.post('/user/logout');
+export const login = (credentials) => userService.login(credentials);
+export const signup = (userData) => userService.signup(userData);
+export const logout = () => userService.logout();

@@ -34,7 +34,7 @@ function LogIn() {
             });
             const json = await response.json();
             if (response.ok) {
-                const user_id = json.user_id;
+                //const user_id = json.user_id;
                 const accessToken = json.accessToken;
                 localStorage.setItem('accessToken', accessToken);
                 navigate(`/formMCQ`);

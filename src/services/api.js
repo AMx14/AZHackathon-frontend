@@ -25,6 +25,7 @@ api.interceptors.request.use((config) => {
 export const userService = {
     login: (credentials) => api.post('/auth/login', credentials),
     signup: (userData) => api.post('/auth/signup', userData),
+    logout: () => api.post('/auth/logout'),
     // Add other user-related API calls
 };
 
