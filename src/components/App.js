@@ -1,54 +1,29 @@
-import '../styles/App.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Main from './Main'; // Import your Main component
+import Login from './Login'; // Import your Login component
+import Signup from './Signup'; // Import your Signup component
+import FormMCQ from './FormMCQ'; // Import your FormMCQ component
+import Quiz from './Quiz'; // Import your Quiz component
+import Result from './Result'; // Import your Result component
+import Logout from './Logout'; // Import your Logout component
 
-/** import components */
-import Main from './Main';
-import Quiz from './Quiz';
-import Result from './Result';
-import Login from './Login';
-import Signup from './Signup';
-import { CheckUserExist } from '../helper/helper';
-import Logout from './Logout';
-//import Lobby from "./FormMCQ";
-import FormMCQ from "./FormMCQ"; // Import Logout
-
-/** react routes */
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <CheckUserExist><Main /></CheckUserExist> // Protect the main page
-  },
-  {
-    path: '/login',
-    element: <Login />
-  },
-  {
-    path: '/signup',
-    element: <Signup />
-  },
-  {
-    path: '/formMCQ',
-    element:<FormMCQ />
-  },
-  {
-    path: '/quiz',
-    element:<CheckUserExist><Quiz /></CheckUserExist>
-  },
-  {
-    path: '/result',
-    element: <CheckUserExist><Result /></CheckUserExist>
-  },
-  {
-    path: '/logout', // Add logout route
-    element: <Logout />
-  }
-]);
 
 function App() {
   return (
-      <>
-        <RouterProvider router={router} />
-      </>
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/main" element={<Main />} />
+        
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/formMCQ" element={<FormMCQ />} />
+        <Route path="/main/quiz" element={<Quiz />} />
+        <Route path="/result" element={<Result />} />
+        <Route path="/logout" element={<Logout />} />
+        {/* Add more routes as needed */}
+      </Routes>
+    </Router>
   );
 }
 
