@@ -13,24 +13,22 @@ import GlobalList from './GlobalList';
 import Lobby from './Lobby';
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/main" element={<Main />} />
-        
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/formMCQ" element={<FormMCQ />} />
-        <Route path="/main/quiz" element={<Quiz />} />
-        <Route path="/result" element={<Result />} />
-        <Route path="/logout" element={<Logout />} />
-        <Route path="/" element={<Main />} />
+      <Router>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/main" element={<Main />} />
+
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/formMCQ" element={<FormMCQ />} />
+          <Route path="/main/quiz" element={<Quiz />} />
+          <Route path="/result" element={<Result />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/" element={<Main />} />
         <Route path="/create-lobby" element={<CreateLobby />} />
       <Route path="/join-lobby" element={<JoinLobby />} />
-      <Route path="/join-lobby/:lobbyId" element={<JoinLobby />} />
-        
-        {/* Add more routes as needed */}
-      </Routes>
-    </Router>
+      <Route path="/join-lobby/:lobbyId" element={<JoinLobby />} />{/* Add more routes as needed */}
+        </Routes>
+      </Router>
   );
 }
 

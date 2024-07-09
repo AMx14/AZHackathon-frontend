@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 
 /** calculate the number of attempts */
 export function attempts_Number(result) {
@@ -23,9 +24,44 @@ export function flagResult(totalPoints, earnPoints) {
 
 /** check user auth */
 export function CheckUserExist({ children }) {
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const auth = useSelector(state => state.result.userId);
     const accessToken = localStorage.getItem('accessToken');
-    return auth && accessToken ? children : <Navigate to={'/login'} replace={true} />;
+
+    useEffect(() => {
+        const verifyToken = async () => {
+            try {
+                const response = await axios.get('http://localhost:8082/users/verifyToken', {
+                    headers: {
+                        'Authorization': `Bearer ${accessToken}`
+                    }
+                });
+                if (response.status === 200) {
+                    setIsAuthenticated(true);
+                } else {
+                    setIsAuthenticated(false);
+                }
+            } catch (error) {
+                console.error('Token verification failed:', error.response ? error.response.data : error.message);
+                setIsAuthenticated(false);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        if (accessToken) {
+            verifyToken();
+        } else {
+            setIsLoading(false);
+        }
+    }, [accessToken]);
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+
+    return auth && isAuthenticated ? children : <Navigate to={'/login'} replace={true} />;
 }
 
 /** get server data */
