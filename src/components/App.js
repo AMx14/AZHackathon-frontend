@@ -7,8 +7,10 @@ import FormMCQ from './FormMCQ'; // Import your FormMCQ component
 import Quiz from './Quiz'; // Import your Quiz component
 import Result from './Result'; // Import your Result component
 import Logout from './Logout'; // Import your Logout component
-
-
+import CreateLobby from './CreateLobby';
+import JoinLobby from './JoinLobby';
+import GlobalList from './GlobalList';
+import Lobby from './Lobby';
 function App() {
   return (
     <Router>
@@ -21,6 +23,11 @@ function App() {
         <Route path="/main/quiz" element={<Quiz />} />
         <Route path="/result" element={<Result />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="/" element={<Main />} />
+        <Route path="/create-lobby" element={<CreateLobby />} />
+      <Route path="/join-lobby" element={<JoinLobby />} />
+      <Route path="/join-lobby/:lobbyId" element={<JoinLobby />} />
+        
         {/* Add more routes as needed */}
       </Routes>
     </Router>

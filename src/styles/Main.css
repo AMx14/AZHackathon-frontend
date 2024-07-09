@@ -1,34 +1,72 @@
-.container ol li{
-    font-size: 1.4em;
-    color: #cecece;
-}
+/* main.css */
 
-.start{
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    padding: 20px;
+  }
+  
+  .left-section,
+  .right-section {
+    flex: 1;
     display: flex;
     justify-content: center;
-    padding-top: 2em;
-}
-
-.start .btn{
-    padding: .2em 1.7em;
+    align-items: center;
+  }
+  
+  .create-lobby-button,
+  .join-lobby-button {
+    padding: 20px;
+    font-size: 18px;
+    background-color: #00ff00; /* Green button */
+    color: #000;
     border: none;
-    border-radius: .1em;
-    font-size: 1.2em;
-    color: #202020;
-    text-decoration: none;
-    background-color: #faff5a;
-}
-
-#form{
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .create-lobby-button:hover,
+  .join-lobby-button:hover {
+    background-color: #0f0;
+  }
+  
+  .center-section {
+    flex: 2;
     display: flex;
     justify-content: center;
-    margin-top: 4em;
-}
-
-#form .userid{
-    padding: .7em 2em;
-    width: 50%;
-    border: none;
-    border-radius: 3px;
-    font-size: 1em;
-}
+    align-items: center;
+  }
+  
+  .lobby-list {
+    max-width: 600px; /* Adjust width as needed */
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .scrollable-list {
+    max-height: 400px; /* Adjust height as needed */
+    overflow-y: auto;
+  }
+  
+  .lobby-item {
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #222;
+    border: 1px solid #00ff00;
+    color: #fff;
+    cursor: pointer;
+  }
+  
