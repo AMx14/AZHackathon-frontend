@@ -57,7 +57,7 @@ function SignUp() {
 
   return (
       <div className="login-page">
-        <AnimatedLetters />
+        <AnimatedLetters text="Let's Sign Up First" />
         <div className="login-form-container">
           <h1 style={{ color: 'black' }}>Sign Up</h1>
           <TextField

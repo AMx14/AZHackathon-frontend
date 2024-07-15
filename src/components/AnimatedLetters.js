@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 
-const AnimatedLetters = () => {
-    const [text] = useState('Ready, Set, Quiz!!');
+const AnimatedLetters = ({ text }) => {
     const [displayedText, setDisplayedText] = useState('');
     const [index, setIndex] = useState(0);
 
@@ -23,7 +22,7 @@ const AnimatedLetters = () => {
         <div className="animated-letters-container">
             <Helmet>
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
                 <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Oswald:wght@200..700&display=swap" rel="stylesheet" />
             </Helmet>
             <h1 className="animated-letters">

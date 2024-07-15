@@ -56,7 +56,7 @@ function LogIn() {
 
   return (
       <div className="login-page">
-        <AnimatedLetters />
+        <AnimatedLetters text="Ready, Set, Quiz!!" />
         <div className="login-form-container">
           <h1 style={{color: 'black'}}>Log In</h1>
           <TextField
