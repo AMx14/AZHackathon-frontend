@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { Grid, Paper, TextField, Button } from '@mui/material';
 import { useNavigate, Link } from 'react-router-dom';
 import { UserContext } from './UserContext';
+import AnimatedLetters from "./AnimatedLetters";
 
 function LogIn() {
   const { setEmail } = useContext(UserContext);
@@ -25,7 +26,7 @@ function LogIn() {
       return;
     }
     try {
-      const response = await fetch('http://localhost:8080/users/login', {
+      const response = await fetch('http://localhost:8085/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -54,45 +55,46 @@ function LogIn() {
   const btnStyle = { margin: '8px 0' };
 
   return (
-    <Grid>
-      <Paper elevation={10} style={paperStyle}>
-        <Grid align='center'>
-          <h2>Log In</h2>
-        </Grid>
-        <TextField
-          label='Email id'
-          placeholder='Enter email id'
-          fullWidth
-          required
-          value={email}
-          onChange={handleEmailChange}
-        />
-        <TextField
-          label='Password'
-          placeholder='Enter password'
-          type='password'
-          fullWidth
-          required
-          value={password}
-          onChange={handlePasswordChange}
-        />
-        <Button
-          type='submit'
-          color='primary'
-          variant='contained'
-          style={btnStyle}
-          fullWidth
-          onClick={handleLogIn}
-        >
-          Log In
-        </Button>
-        <Grid align='center' style={{ marginTop: '20px' }}>
-          <Link to='/signup' color='inherit'>
-            Sign Up
-          </Link>
-        </Grid>
-      </Paper>
-    </Grid>
+      <div className="login-page">
+        <AnimatedLetters />
+        <div className="login-form-container">
+          <h1 style={{color: 'black'}}>Log In</h1>
+          <TextField
+              label='Email id'
+              placeholder='Enter email id'
+              fullWidth
+              required
+              value={email}
+              onChange={handleEmailChange}
+              margin="normal"
+          />
+          <TextField
+              label='Password'
+              placeholder='Enter password'
+              type='password'
+              fullWidth
+              required
+              value={password}
+              onChange={handlePasswordChange}
+              margin="normal"
+          />
+          <Button
+              type='submit'
+              color='primary'
+              variant='contained'
+              fullWidth
+              onClick={handleLogIn}
+              style={{marginTop: '20px'}}
+          >
+            Log In
+          </Button>
+          <div style={{textAlign: 'center', marginTop: '20px'}}>
+            <Link to='/signup' color='inherit'>
+              Sign Up
+            </Link>
+          </div>
+        </div>
+      </div>
   );
 }
 

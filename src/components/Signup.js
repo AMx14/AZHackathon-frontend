@@ -1,6 +1,7 @@
 import { Grid, Paper, TextField, Button } from '@mui/material';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import AnimatedLetters from "./AnimatedLetters";
 
 function SignUp() {
   const [username, setUsername] = useState('');
@@ -29,7 +30,7 @@ function SignUp() {
     }
 
     try {
-      const response = await fetch('http://localhost:8080/users/signup', {
+      const response = await fetch('http://localhost:8085/users/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,7 +46,7 @@ function SignUp() {
 
       if (response.ok) {
         alert('Sign Up successful!');
-        navigate(`/main/${email}`);
+        navigate(`/login`);
       } else {
         throw new Error(json.message || 'Sign Up failed!');
       }
@@ -54,57 +55,56 @@ function SignUp() {
     }
   };
 
-  const paperStyle = { padding: 20, height: '40vh', width: 500, margin: '50px auto' };
-  const btnstyle = { margin: '8px 0' };
-
   return (
-    <Grid>
-      <Paper elevation={10} style={paperStyle}>
-        <Grid align="center">
-          <h2>Sign Up</h2>
-        </Grid>
-        <TextField
-          label="Username"
-          placeholder="Enter username"
-          fullWidth
-          required
-          value={username}
-          onChange={handleUsernameChange}
-        />
-        <TextField
-          label="Email id"
-          placeholder="Enter email id"
-          fullWidth
-          required
-          value={email}
-          onChange={handleEmailChange}
-        />
-        <TextField
-          label="Password"
-          placeholder="Enter password"
-          type="password"
-          fullWidth
-          required
-          value={password}
-          onChange={handlePasswordChange}
-        />
-        <Button
-          type="submit"
-          color="primary"
-          variant="contained"
-          style={btnstyle}
-          fullWidth
-          onClick={handleSignUp}
-        >
-          Sign Up
-        </Button>
-        <Grid align="center" style={{ marginTop: '20px' }}>
-          <Link to="/login" color="inherit">
-            Already have an account? Log In
-          </Link>
-        </Grid>
-      </Paper>
-    </Grid>
+      <div className="login-page">
+        <AnimatedLetters />
+        <div className="login-form-container">
+          <h1 style={{ color: 'black' }}>Sign Up</h1>
+          <TextField
+              label="Username"
+              placeholder="Enter username"
+              fullWidth
+              required
+              value={username}
+              onChange={handleUsernameChange}
+              margin="normal"
+          />
+          <TextField
+              label="Email id"
+              placeholder="Enter email id"
+              fullWidth
+              required
+              value={email}
+              onChange={handleEmailChange}
+              margin="normal"
+          />
+          <TextField
+              label="Password"
+              placeholder="Enter password"
+              type="password"
+              fullWidth
+              required
+              value={password}
+              onChange={handlePasswordChange}
+              margin="normal"
+          />
+          <Button
+              type="submit"
+              color="primary"
+              variant="contained"
+              fullWidth
+              onClick={handleSignUp}
+              style={{ marginTop: '20px' }}
+          >
+            Sign Up
+          </Button>
+          <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            <Link to="/login" color="inherit">
+              Already have an account? Log In
+            </Link>
+          </div>
+        </div>
+      </div>
   );
 }
 

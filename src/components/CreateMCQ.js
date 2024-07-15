@@ -25,7 +25,7 @@ const CreateMCQ = () => {
 
   const fetchQuestionCount = async (token) => {
     try {
-      const response = await axios.get(`http://localhost:8080/mcqs/count/${id}`, {
+      const response = await axios.get(`http://localhost:8085/mcqs/count/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

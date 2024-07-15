@@ -39,7 +39,7 @@ const FormMCQ = ({ lid, email, handleClose }) => {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:8080/mcqs/createMcq', formData, {
+      const response = await axios.post('http://localhost:8085/mcqs/createMcq', formData, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`

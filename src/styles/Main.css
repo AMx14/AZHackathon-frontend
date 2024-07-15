@@ -1,5 +1,5 @@
 body {
-  background-color: #000;
+  background-color: #000000;
   color: #fff;
   font-family: Arial, sans-serif;
   margin: 0;
@@ -157,4 +157,48 @@ body {
 .lobby-item:hover {
   background: linear-gradient(135deg, #ff8c00, #ff4500);
   transform: scale(1.05);
+}
+
+/*.login-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}*/
+.animated-letters-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px; /* Increased height for larger text */
+  background-color: #000000; /* AMOLED black */
+}
+
+.animated-letters {
+  font-size: 4.5rem; /* Increased font size */
+  font-weight: bold;
+  font-family: "Oswald", sans-serif;
+  color: #fff;
+  text-align: center;
+}
+
+.cursor {
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Style for the login form container */
+.login-form-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 400px;
+  margin: 20px auto;
 }

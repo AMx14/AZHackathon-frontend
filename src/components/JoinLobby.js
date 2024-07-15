@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import io from 'socket.io-client';
 
-const socket = io('http://localhost:3001');
+const socket = io('http://localhost:3000');
 
 const JoinLobby = () => {
   const { lobbyId } = useParams();
@@ -17,7 +17,7 @@ const JoinLobby = () => {
   }, []);
 
   const handleJoinLobby = async () => {
-    const response = await fetch('http://localhost:3001/requestJoinLobby', {
+    const response = await fetch('http://localhost:3000/requestJoinLobby', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ lid: lobbyCode, userEmail })

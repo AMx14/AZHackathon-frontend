@@ -12,7 +12,7 @@ function LogOut() {
         }
 
         try {
-            const response = await fetch('http://localhost:8082/users/logout', {
+            const response = await fetch('http://localhost:8085/users/logout', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

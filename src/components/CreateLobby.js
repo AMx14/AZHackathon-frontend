@@ -27,7 +27,7 @@ const CreateLobby = () => {
         return;
       }
 
-      const response = await axios.post('http://localhost:8080/lobbies/createLobby', {
+      const response = await axios.post('http://localhost:8085/lobbies/createLobby', {
         lid: lobbyId,
         lname: lobbyName,
         lowneremail: email
